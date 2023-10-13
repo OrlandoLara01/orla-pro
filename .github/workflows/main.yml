@@ -1,0 +1,26 @@
+name: build and Deploy 
+on:
+ push: 
+     branches:
+     - main
+     workflow_dispatch:
+
+  permissions:
+  contents: write
+  jobs:
+    build-and-deploy:
+    runs-on: ubuntu-latet
+    steps:
+    - name: checkout
+    uses: actions/checkout@v3
+
+    -name: Install and build #This example projects is built using npm and outputs the resut
+    run: 
+     npm ci
+     npm run build 
+
+     - name: Deploy 
+     uses: JamesIves/github-pages-deploy-action@v4
+     with:
+     folder: dist/angular-app-jueves # The folder the action should deploy
+     
