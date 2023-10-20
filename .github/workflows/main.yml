@@ -2,7 +2,7 @@ name: build and Deploy
 on:
  push: 
      branches:
-     - master
+     - main
      workflow_dispatch:
 
   permissions:
@@ -22,5 +22,5 @@ on:
      - name: Deploy 
      uses: JamesIves/github-pages-deploy-action@v4
      with:
-     folder: dist/angular-app-jueves # The folder the action should deploy
+     folder: dist/angular-app-jueves #The folder the action should deploy
      
